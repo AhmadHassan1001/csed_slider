@@ -28,8 +28,8 @@ streamlit run main.py
 3. Add your google API key to the agent. [How to get a Gemini API key](https://youtu.be/OVnnVnLZPEo?si=Vi7EAf0nOhUeOUyK)
 4. Start Lecture 🎉
 
-## Demo 🎥
-[![CSED Slider Demo](https://img.youtube.com/ve/1Q8J9J9Q1Z0/0.jpg)](https://www.youtube.com/watch?v=1Q8J9J9Q1Z0)
+<!-- ## Demo 🎥
+[![CSED Slider Demo](https://img.youtube.com/ve/1Q8J9J9Q1Z0/0.jpg)](https://www.youtube.com/watch?v=1Q8J9J9Q1Z0) -->
 
 ## Future Work 🚀
 - **More interactive quizzes**: Add more interactive ways to help students understand the slides.
