@@ -31,7 +31,7 @@ streamlit run main.py
 <!-- ## Demo 🎥
 [![CSED Slider Demo](https://img.youtube.com/ve/1Q8J9J9Q1Z0/0.jpg)](https://www.youtube.com/watch?v=1Q8J9J9Q1Z0) -->
 
-## Future Work 🚀
+## Future Work ⏫
 - **More interactive quizzes**: Add more interactive ways to help students understand the slides.
 - **PDF feature**: Add the ability to search for a specific word in the slides.
 - **Voice feature**: Add the ability to explain the slides using voice.
