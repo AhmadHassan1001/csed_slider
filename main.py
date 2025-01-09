@@ -4,7 +4,12 @@ from sections.quiz import render_quiz, render_progress
 from sections.chat import render_chat
 from sections.pdf_viewer import render_pdf_viewer
 from sections.configurations import render_configurations
+from workers.prefetcher import PrefetcherThread
 
+
+if "prefetcher" not in st.session_state:
+  st.session_state.prefetcher = PrefetcherThread()
+  st.session_state.prefetcher.start()
 
 st.set_page_config(layout="wide")
 
@@ -12,6 +17,7 @@ render_configurations()
 
 if "file_path" not in st.session_state or "explainer" not in st.session_state:
   st.stop()
+
 
 render_progress()
 

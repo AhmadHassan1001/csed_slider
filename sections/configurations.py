@@ -5,7 +5,7 @@ import tempfile
 import streamlit as st
 import google.generativeai as genai
 
-from explainer import Explainer
+from workers.explainer import Explainer
 
 
 def render_api_key():

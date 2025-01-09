@@ -2,12 +2,14 @@ import io
 import json
 import base64
 import PyPDF2
+import asyncio
 import streamlit as st
 import google.generativeai as genai
 
 from utils.quiz import Quiz
 
 model = genai.GenerativeModel("gemini-1.5-flash")
+
 
 if "api_key" in st.session_state:
     genai.configure(api_key=st.session_state.api_key)
@@ -25,15 +27,10 @@ class Explainer:
         genai.configure(api_key=api_key)
 
     def explain_page(self, page_number):
-        page_data = self.extract_page_as_base64(page_number)
-        chat = model.start_chat(
-            history=self.get_history(),
-        )
-        prompt = "Give me breif explanation of this slide"
-        response = chat.send_message([{'mime_type': 'application/pdf', 'data': page_data}, prompt])
-        explanation = response.text
-        self.page_explanations[page_number] = explanation
+        explanation = self.fetch_page_explanation(page_number)
+        self.prefetch_pages(page_number)
         return explanation
+    
 
     def quiz_page(self, page_number):
         if page_number in st.session_state.quiz:
@@ -80,6 +77,24 @@ class Explainer:
     
     def get_history(self):
         return st.session_state.messages[-5:]
+    
+
+    def fetch_page_explanation(self, page_number):
+        if page_number in self.page_explanations:
+            return self.page_explanations[page_number]
+        
+        page_data = self.extract_page_as_base64(page_number)
+        chat = model.start_chat(
+            history=self.get_history(),
+        )
+        prompt = "Give me breif explanation of this slide"
+        response = chat.send_message([{'mime_type': 'application/pdf', 'data': page_data}, prompt])
+        explanation = response.text
+        self.page_explanations[page_number] = explanation
+        return explanation
+
+    def prefetch_pages(self, page_number):
+        pass
 
     def extract_page_as_base64(self, page_number):
         try:
