@@ -38,7 +38,7 @@ def render_pdf_viewer():
       prev_page()
   
   with col2:
-    st.write(f"Page Number: {st.session_state.page_number}", align="center")
+    st.write(f"{st.session_state.page_number}/{st.session_state.pages_count}", align="center")
   
   with col3:
     if st.button("Next"):
