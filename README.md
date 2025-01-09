@@ -4,6 +4,9 @@
 ## Description 📚
 This is a study agent to help students, mainly was for CSED (Computer & Systems Engineering) at Alexandria University, to explain the slides of lectures. Main goal is to make it easy and quick to understand the slides and to help students to study the slides in a more interactive way.
 
+## Demo 🎥
+[CSED Slider](https://csed-slider.streamlit.app/)
+
 ## Features ✨
 - **Slide Explanation**: The agent will explain the slide to the student slide by slide.
 - **Slide Chat**: The student can ask the agent about the slide content.
@@ -27,9 +30,6 @@ streamlit run main.py
 2. Upload the slides you want to study.
 3. Add your google API key to the agent. [How to get a Gemini API key](https://youtu.be/OVnnVnLZPEo?si=Vi7EAf0nOhUeOUyK)
 4. Start Lecture 🎉
-
-<!-- ## Demo 🎥
-[![CSED Slider Demo](https://img.youtube.com/ve/1Q8J9J9Q1Z0/0.jpg)](https://www.youtube.com/watch?v=1Q8J9J9Q1Z0) -->
 
 ## Future Work ⏫
 - **More interactive quizzes**: Add more interactive ways to help students understand the slides.
