@@ -40,7 +40,7 @@ class Explainer:
             history=self.get_history(),
         )
         page_data = self.extract_page_as_base64(page_number)
-        prompt = "Give me an MCQ question based on the most recent data"
+        prompt = "Give me an MCQ question based on the most recent data, Questions should be in the same language as the content."
         
         # Ask the AI model to answer the question
         response = chat.send_message([{'mime_type': 'application/pdf', 'data': page_data}, prompt],
@@ -69,7 +69,7 @@ class Explainer:
         with open(self.file_path, "rb") as doc_file:
             doc_data = base64.standard_b64encode(doc_file.read()).decode("utf-8")
             response = model.generate_content([{'mime_type': 'application/pdf', 'data': doc_data}, 
-                                               "Give me a summary of these slides to help me understand the content and context. It shouldn't exceed 3 sentences."])
+                                               "Give me a summary of these slides to help me understand the content and context. It shouldn't exceed 3 sentences. It should be in same language of the slides."])
             summary = response.text
             st.session_state.messages.append({"role": "model", "parts": summary})
         inital_slide = self.explain_page(1)
